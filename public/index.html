@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>webRTC chat</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    </head>
+    <body>
+        <div id="main">
+            <div id="connectionStatus">
+                <div id="makeConnection">
+                    <form id="makeConnectionForm" action="#">
+                        <input id="makeConnectionInputField" type="text" placeholder="Введите ID" autocomplete="off"/> 
+                        <input type="submit" value="Подключиться" />
+                    </form>
+                </div>
+                <p id="welcome"></p>
+                <p id="connectedOrDisconnected"></p>
+            </div>
+            <div id="videoContainer">
+                <div id="localVideoController">
+                    <video id="localVideo" autoplay muted></video>
+                    <div id="control">
+                        <input type="button" id="startButton" value="Позвонить"></input>
+                        <input type="button" id="stopButton" value="Закончить"></input>
+                    </div>
+                </div>
+                <div id="remoteVideoContainer">
+                    <video id="remoteVideo" autoplay></video>
+                </div>
+                <div id="toast"></div>
+            </div>
+        </div>
+        <div id="chatMessages">
+            <ol id="chatMessagesList">
+            </ol>
+        </div>
+        <div id="typeMessages">
+            <form id="typeMessagesForm" action="#">
+                <input type="text" id="chatTextField" placeholder="Текст сообщения" autocomplete="off">
+                <input type="submit" value="Отправить" id="sendMessageButton"/>
+            </form>   
+        </div>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="webrtc.js"></script>
+    </body>
+</html>
